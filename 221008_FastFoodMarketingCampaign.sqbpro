@@ -31,11 +31,11 @@ GROUP BY MarketSize
 -- Create age range buckets 
 --The number of locations in each age bucket
 SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	COUNT(DISTINCT(LocationID)) AS total_locations_tested
@@ -44,11 +44,11 @@ GROUP BY agerange
 
 -- The number of locations of each promotion in each age group 
 SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, COUNT(DISTINCT(LocationID)) AS total_locations_tested
@@ -108,11 +108,11 @@ Order by MarketSize
 
 -- Use CASE to create age buckets for promotion and total SalesInThousands
 SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, SUM(salesinthousands) AS totalpromotionsales
@@ -122,11 +122,11 @@ SELECT
 -- Which promotion had the highest total SalesInThousands by age grouping
 SELECT sub.agerange, promotion, max(sub.totalpromotionsales) as highesttotalpromosales
 FROM (SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, SUM(salesinthousands) AS totalpromotionsales
@@ -136,11 +136,11 @@ GROUP BY sub.agerange
 
 -- Average store sales by promotion grouped by age bucket
 SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, ROUND(AVG(salesinthousands)) AS avgpromotionsales
@@ -149,11 +149,11 @@ GROUP BY agerange, Promotion
 
 -- Looking at the promotion and market size broken down by age groupings
 SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, MarketSize, SUM(salesinthousands) AS totalpromotionsales
@@ -163,11 +163,11 @@ GROUP BY Promotion, agerange, MarketSize
 -- Broad look at how the age of the store impacted the average SalesInThousands for each promotion within each MarketSize
 --(sub out the like clause on the where line to view the different market sizes)
 SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, marketsize, SUM(salesinthousands) AS avgpromotionsales
@@ -182,11 +182,11 @@ ORDER BY  agerange, Promotion
 SELECT sub.agerange, promotion, MarketSize, 
 	max(sub.totalpromotionsales) as totalpromosales
 From	(SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 	Promotion, marketsize, SUM(salesinthousands) AS totalpromotionsales
@@ -204,11 +204,11 @@ SELECT sub.agerange, promotion, MarketSize,
 	MAX(sub.avgpromotionsales) AS avgpromosales
 FROM	
 	(SELECT 
-	CASE WHEN AgeOfStore &gt;= 0 AND AgeOfStore &lt;= 5 THEN '0 - 05'
-		WHEN AgeOfStore &gt; 5 AND AgeOfStore &lt;= 10 THEN '06 - 10'
-		WHEN AgeOfStore &gt; 10 AND AgeOfStore &lt;= 15 THEN '11 - 15'
-		WHEN AgeOfStore &gt; 15 AND AgeOfStore &lt;= 20 THEN '16 - 20'
-		WHEN AgeOfStore &gt; 20 AND AgeOfStore &lt;= 25 THEN '20 - 25'
+	CASE WHEN AgeOfStore >= 0 AND AgeOfStore <= 5 THEN '0 - 05'
+		WHEN AgeOfStore > 5 AND AgeOfStore <= 10 THEN '06 - 10'
+		WHEN AgeOfStore > 10 AND AgeOfStore <= 15 THEN '11 - 15'
+		WHEN AgeOfStore > 15 AND AgeOfStore <= 20 THEN '16 - 20'
+		WHEN AgeOfStore > 20 AND AgeOfStore <= 25 THEN '20 - 25'
 		ELSE 'over 25'
 		END Agerange,
 		Promotion, marketsize, AVG(salesinthousands) AS avgpromotionsales
